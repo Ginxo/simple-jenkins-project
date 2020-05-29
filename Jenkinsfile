@@ -22,7 +22,7 @@ pipeline {
         stage('Downstream Build') {
             final SETTINGS_XML_ID = "771ff52a-a8b4-40e6-9b22-d54c7314aa1e"
             configFileProvider([configFile(fileId: SETTINGS_XML_ID, variable: 'MAVEN_SETTINGS_XML_DOWNSTREAM')]) {
-                treebuild.downstreamBuild(['ginxo/simple-jenkins-project', 'ginxo/simple-jenkins-project2'], "${SETTINGS_XML_ID}", 'clean install', true)
+                treebuild.downstreamBuild(['kiegroup/lienzo-core', 'kiegroup/lienzo-tests', 'kiegroup/droolsjbpm-build-bootstrap'], "${SETTINGS_XML_ID}", 'clean install', true)
             }
         }
     }
